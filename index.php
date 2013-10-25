@@ -20,12 +20,12 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>Raspberry-Wifi</title>
-<link rel="stylesheet" href="../css/jquery-ui.css" />
-<script src="../js/jquery-1.9.1.js"></script>
+<title>FruityWifi</title>
+<script src="../js/jquery.js"></script>
 <script src="../js/jquery-ui.js"></script>
+<link rel="stylesheet" href="../css/jquery-ui.css" />
 <link rel="stylesheet" href="../css/style.css" />
-<link rel="stylesheet" href="../../style.css" />
+<link rel="stylesheet" href="../../../style.css" />
 
 <script>
 $(function() {
