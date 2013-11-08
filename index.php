@@ -108,10 +108,15 @@ if ($logfile != "" and $action == "delete") {
             } else {
                 $filename = $mod_logs;
             }
-
+            
+            /*
             $fh = fopen($filename, "r") or die("Could not open file.");
             $data = fread($fh, filesize($filename)) or die("Could not read file.");
             fclose($fh);
+            */
+            
+            $data = open_file($filename);
+            
             $data_array = explode("\n", $data);
             $data = implode("\n",array_reverse($data_array));
             
@@ -145,9 +150,13 @@ if ($logfile != "" and $action == "delete") {
         <?
             $filename = "/usr/share/FruityWifi/conf/spoofhost.conf";
 
+            /*
             $fh = fopen($filename, "r") or die("Could not open file.");
             $data = fread($fh, filesize($filename)) or die("Could not read file.");
             fclose($fh);
+            */
+            
+            $data = open_file($filename);
             
         ?>
         <textarea id="hosts" name="newdata" class="module-content"><?=$data?></textarea>
