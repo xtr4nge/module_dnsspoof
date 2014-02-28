@@ -65,6 +65,9 @@ if ($newdata != "") {
     //$newdata = preg_replace(13,  "", $newdata);
     $exec = "$bin_echo '$newdata' > /usr/share/FruityWifi/conf/spoofhost.conf";
 	exec("$bin_danger \"$exec\"", $output);
+	
+	$exec = "$bin_dos2unix /usr/share/FruityWifi/conf/spoofhost.conf";
+	exec("$bin_danger \"$exec\"", $output);
 }
 
 // DELETE LOG

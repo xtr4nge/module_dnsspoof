@@ -13,4 +13,5 @@ $bin_killall = "/usr/bin/killall";
 $bin_echo = "/bin/echo";
 $bin_cp = "/bin/cp";
 $bin_rm = "/bin/rm";
+$bin_dos2unix = "/usr/bin/dos2unix";
 ?>
