@@ -1,6 +1,10 @@
 <?
 $mod_name="dnsspoof";
+<<<<<<< HEAD
 $mod_version="1.5";
+=======
+$mod_version="1.4";
+>>>>>>> 38efaccb28ffc04aac47a5ddfdcf898696920ba1
 $mod_logs="/usr/share/FruityWifi/logs/dnsspoof.log"; 
 $mod_logs_history="/usr/share/FruityWifi/www/modules/dnsspoof/includes/logs/";
 $mod_panel="show";
