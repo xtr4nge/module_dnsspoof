@@ -28,7 +28,7 @@ if ($regex == 1) {
     regex_standard($_GET["file"], "../msg.php", $regex_extra);
     regex_standard($_GET["action"], "../msg.php", $regex_extra);
     regex_standard($_GET["page"], "../msg.php", $regex_extra);
-    regex_standard($iface_wifi, "../msg.php", $regex_extra);
+    regex_standard($io_action, "../msg.php", $regex_extra);
 }
 
 $service = $_GET['service'];
@@ -43,7 +43,7 @@ if($service == "dnsspoof") {
 
         $exec = "$bin_echo '' > $mod_logs";
         exec("$bin_danger \"$exec\"" );
-        $exec = "$bin_dnsspoof -i $iface_wifi -f /usr/share/FruityWifi/conf/spoofhost.conf > /dev/null 2> $mod_logs &";
+        $exec = "$bin_dnsspoof -i $io_action -f /usr/share/FruityWifi/conf/spoofhost.conf > /dev/null 2> $mod_logs &";
         exec("$bin_danger \"$exec\"" );
     } else if($action == "stop") {
         $exec = "$bin_killall dnsspoof";
