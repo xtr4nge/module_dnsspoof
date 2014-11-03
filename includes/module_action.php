@@ -1,6 +1,6 @@
 <? 
 /*
-	Copyright (C) 2013  xtr4nge [_AT_] gmail.com
+	Copyright (C) 2013-2014 xtr4nge [_AT_] gmail.com
 
 	This program is free software: you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
@@ -34,6 +34,7 @@ if ($regex == 1) {
 $service = $_GET['service'];
 $action = $_GET['action'];
 $page = $_GET['page'];
+$install = $_GET['install'];
 
 if($service == "dnsspoof") {
     if ($action == "start") {
@@ -51,20 +52,22 @@ if($service == "dnsspoof") {
     }
 }
 
+if ($install == "install_$mod_name") {
+
+    $exec = "chmod 755 install.sh";
+    exec("$bin_danger \"$exec\"" );
+
+    $exec = "$bin_sudo ./install.sh > /usr/share/FruityWifi/logs/install.txt &";
+    exec("$bin_danger \"$exec\"" );
+
+    header('Location: ../../install.php?module='.$mod_name);
+    exit;
+}
+
 if ($page == "status") {
     header('Location: ../../../action.php');
 } else {
     header('Location: ../../action.php?page=dnsspoof');
 }
 
-/*
-if ($page == "list") {
-    header('Location: ../page_modules.php');    
-} else if ($page == "module") {
-    //header('Location: ../modules/dnsspoof/index.php');
-    header('Location: ../modules/action.php?page=dnsspoof');
-} else {
-    header('Location: ../page_status.php');
-}
-*/
 ?>
