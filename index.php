@@ -1,6 +1,6 @@
 <? 
 /*
-    Copyright (C) 2013-2014  xtr4nge [_AT_] gmail.com
+    Copyright (C) 2013-2014 xtr4nge [_AT_] gmail.com
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -43,9 +43,8 @@ $(function() {
 <br>
 
 <?
-
-include "_info_.php";
 include "../../config/config.php";
+include "_info_.php";
 include "../../login_check.php";
 include "../../functions.php";
 
@@ -63,17 +62,20 @@ $action = $_GET["action"];
 // SAVE DNSSPOOF HOSTS
 if ($newdata != "") { 
     //$newdata = preg_replace(13,  "", $newdata);
-    $exec = "$bin_echo '$newdata' > /usr/share/FruityWifi/conf/spoofhost.conf";
-	exec("$bin_danger \"$exec\"", $output);
-	
-	$exec = "$bin_dos2unix /usr/share/FruityWifi/conf/spoofhost.conf";
-	exec("$bin_danger \"$exec\"", $output);
+    $exec = "$bin_echo '$newdata' > /usr/share/fruitywifi/conf/spoofhost.conf";
+    //exec("$bin_danger \"$exec\"", $output); //DEPRECATED
+    exec_fruitywifi($exec);
+    
+    $exec = "$bin_dos2unix /usr/share/fruitywifi/conf/spoofhost.conf";
+    //exec("$bin_danger \"$exec\"", $output); //DEPRECATED
+    exec_fruitywifi($exec);
 }
 
 // DELETE LOG
 if ($logfile != "" and $action == "delete") {
     $exec = "$bin_rm ".$mod_logs_history.$logfile.".log";
-    exec("$bin_danger \"$exec\"", $dump);
+    //exec("$bin_danger \"$exec\"", $dump); //DEPRECATED
+    exec_fruitywifi($exec);
 }
 
 ?>
@@ -109,7 +111,7 @@ if ($logfile != "" and $action == "delete") {
         <li><a href="#result-1">Output</a></li>
         <li><a href="#result-2">History</a></li>
         <li><a href="#result-3">Hosts</a></li>
-		<li><a href="#result-4">About</a></li>
+	<li><a href="#result-4">About</a></li>
     </ul>
     <div id="result-1" >
         <form id="formLogs" name="formLogs" method="POST" autocomplete="off">
@@ -165,7 +167,7 @@ if ($logfile != "" and $action == "delete") {
         <input type=submit value="save">
         <br><br>
         <?
-            $filename = "/usr/share/FruityWifi/conf/spoofhost.conf";
+            $filename = "/usr/share/fruitywifi/conf/spoofhost.conf";
 
             /*
             $fh = fopen($filename, "r") or die("Could not open file.");
@@ -186,7 +188,7 @@ if ($logfile != "" and $action == "delete") {
 	<!-- ABOUT -->
 
 	<div id="result-4" class="history">
-		<? include "includes/about.php"; ?>
+	    <? include "includes/about.php"; ?>
 	</div>
 	
 	<!-- END ABOUT -->
